@@ -1,0 +1,93 @@
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 15px 0 15px;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dark-mode {
+  background: #000;
+}
+
+.dark-mode h1 {
+  color: #fff;
+}
+
+.notes-list {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.note.new {
+  background: #67d7cc;
+}
+
+textarea {
+  border: none;
+  resize: none;
+  background: #67d7cc;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.save {
+  background: #e1e1e1;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px;
+}
+
+.save:hover {
+  background: #ededed;
+  cursor: pointer;
+}
+
+.note {
+  background: #fef68a;
+  border-radius: 10px;
+  padding: 1rem;
+  min-height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  white-space: pre-wrap;
+}
+
+.note-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.delete-icon:hover {
+  cursor: pointer;
+  color: orangered;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  background: rgb(233, 233, 233);
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 1.5em;
+}
+
+.search input {
+  width: 100%;
+  border: none;
+  background: rgb(233, 233, 233);
+}
+
+.search input:focus {
+  outline: none;
+}
