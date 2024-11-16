@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { nanoid } from "nanoid";
+import { nanoid } from "nanoid"; // Generates random id
 
 export const NotesContext = createContext();
 
@@ -9,6 +9,8 @@ const GlobalState = ({ children }) => {
   const [searchText, setSearchText] = useState("");
   const [darkMode, setDarkMode] = useState(false);
 
+  // Collects saved notes from localstorage
+
   useEffect(() => {
     const savedNotes = JSON.parse(localStorage.getItem("notes-app-data"));
     if (savedNotes && savedNotes.length > 0) {
@@ -17,6 +19,8 @@ const GlobalState = ({ children }) => {
       localStorage.setItem("notes-app-data", JSON.stringify(notes));
     }
   }, []);
+
+  // Saves notes to localstorage
 
   useEffect(() => {
     localStorage.setItem("notes-app-data", JSON.stringify(notes));
@@ -34,10 +38,14 @@ const GlobalState = ({ children }) => {
     setNotes(newNotes);
   };
 
+  // deletes a note
+
   const deleteNote = (id) => {
     const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes);
   };
+
+  // filters the notes
 
   const filteredNotes = notes.filter((note) =>
     note.text.toLowerCase().includes(searchText.toLowerCase())

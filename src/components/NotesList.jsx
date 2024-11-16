@@ -21,8 +21,8 @@ const NotesList = () => {
           }}
         >
           <h1>No notes available...</h1>
-          <h3>Add a Note</h3>
-          <MdArrowCircleRight size="1.4em" color="blue" />
+          <h3>Add a New Note</h3>
+          <MdArrowCircleRight size="1.6em" color="blue" />
         </div>
       )}
 
