@@ -8,6 +8,7 @@ const GlobalState = ({ children }) => {
   const [noteText, setNoteText] = useState("");
   const [searchText, setSearchText] = useState("");
   const [darkMode, setDarkMode] = useState(false);
+  const [open, setOpen] = useState(false);
 
   // Collects saved notes from localstorage
 
@@ -36,6 +37,7 @@ const GlobalState = ({ children }) => {
 
     const newNotes = [...notes, newNote];
     setNotes(newNotes);
+    setNoteText(""); // Clear the input
   };
 
   // deletes a note
@@ -63,6 +65,8 @@ const GlobalState = ({ children }) => {
         filteredNotes,
         darkMode,
         setDarkMode,
+        open,
+        setOpen,
       }}
     >
       {children}

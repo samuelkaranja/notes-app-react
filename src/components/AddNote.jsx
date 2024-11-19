@@ -1,9 +1,11 @@
 import { useContext, useEffect } from "react";
 import { NotesContext } from "../context";
+import EmojiPicker from "emoji-picker-react";
 import "./style.css";
 
 const AddNote = () => {
-  const { noteText, setNoteText, addNewNote } = useContext(NotesContext);
+  const { noteText, setNoteText, addNewNote, open, setOpen } =
+    useContext(NotesContext);
   const characterCount = 200;
 
   const handleTextChange = (e) => {
@@ -12,10 +14,14 @@ const AddNote = () => {
     }
   };
 
+  const handleEmoji = (e) => {
+    setNoteText((prevText) => prevText + e.emoji); // Append emoji to noteText
+    setOpen(false); // Close picker
+  };
+
   const handleSaveClick = () => {
     if (noteText.trim().length > 0) {
       addNewNote();
-      setNoteText("");
     }
   };
 
@@ -28,6 +34,18 @@ const AddNote = () => {
         value={noteText}
         onChange={handleTextChange}
       ></textarea>
+      <div className="emoji">
+        <img
+          src="./emoji.png"
+          alt=""
+          onClick={() => setOpen((prev) => !prev)}
+        />
+        {open && (
+          <div className="picker">
+            <EmojiPicker open={open} onEmojiClick={handleEmoji} />
+          </div>
+        )}
+      </div>
 
       <div className="note-footer">
         <small>{characterCount - noteText.length} Remianing</small>
