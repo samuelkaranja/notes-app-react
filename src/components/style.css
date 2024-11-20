@@ -71,7 +71,6 @@ textarea:focus {
 .picker {
   position: absolute;
   right: 0;
-  /* top: 0; */
 }
 
 .note {
@@ -89,6 +88,38 @@ textarea:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.note-footer small {
+  margin-right: auto;
+}
+
+.edit-text {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.edit-icon {
+  color: #000;
+  cursor: pointer;
+  padding-right: 10px;
+}
+
+.edit-icon:hover {
+  color: green;
+}
+
+.save-edit {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.save-edit:hover {
+  background-color: #45a049;
 }
 
 .delete-icon:hover {

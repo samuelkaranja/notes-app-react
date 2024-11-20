@@ -40,6 +40,14 @@ const GlobalState = ({ children }) => {
     setNoteText(""); // Clear the input
   };
 
+  // edit note
+  const editNote = (id, updatedText) => {
+    const updatedNotes = notes.map((note) =>
+      note.id === id ? { ...note, text: updatedText } : note
+    );
+    setNotes(updatedNotes);
+  };
+
   // deletes a note
 
   const deleteNote = (id) => {
@@ -60,6 +68,7 @@ const GlobalState = ({ children }) => {
         noteText,
         setNoteText,
         addNewNote,
+        editNote,
         deleteNote,
         setSearchText,
         filteredNotes,
